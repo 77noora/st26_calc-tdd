@@ -1,3 +1,9 @@
 __pycache__/
 *.pyc
 *.pdf
+.coverage
+.ruff_cache/
+.pytest_cache/
+# local evidence for the report (not part of the project)
+q2_agent_*
+*-local-command-*.txt
