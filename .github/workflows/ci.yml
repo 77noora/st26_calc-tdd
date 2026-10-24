@@ -8,9 +8,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - name: Run unit tests
-        run: python -m unittest -v CalcTest
+      - name: Install verification tools
+        run: pip install ruff==0.16.9 coverage==7.17.0
+      - name: Static analysis (ruff)
+        run: ruff check .
+      - name: Run unit tests with branch coverage
+        run: coverage run --branch -m unittest -v CalcTest
+      - name: Coverage report (Calc.py must be 100%)
+        run: coverage report -m --include=Calc.py --fail-under=100
