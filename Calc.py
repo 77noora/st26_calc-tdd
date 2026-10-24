@@ -16,3 +16,5 @@ class Calculator:
     def modulo(self, a, b):
         self._require_nonzero(b, "modulo")
         return a % b
+    def power(self, a, b):
+        return a ** b
