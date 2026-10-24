@@ -68,6 +68,16 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calc.power(2, -2), 0.25)
         self.assertIsInstance(calc.power(2, -2), float)
 
+    def test_power_zero_to_negative(self):
+        # Decision (student): 0 to a negative power is division by zero -> ValueError,
+        # consistent with divide and modulo
+        calc = Calculator()
+        with self.assertRaises(ValueError):
+            calc.power(0, -1)
+        with self.assertRaises(ValueError):
+            calc.power(0.0, -2)   # float zero, different exponent
+        self.assertEqual(calc.power(0, 2), 0)   # zero base with positive exponent still works
+
         
 if __name__ == "__main__":
     unittest.main()
