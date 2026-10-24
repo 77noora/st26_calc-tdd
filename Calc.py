@@ -1,4 +1,9 @@
 class Calculator:
+    @staticmethod
+    def _require_nonzero(b, op):
+        if b == 0:
+            raise ValueError(f"Cannot {op} by zero")
+
     def add(self, a, b):
         return a + b
     def subtract(self, a, b):
@@ -6,10 +11,8 @@ class Calculator:
     def multiply(self, a, b):
         return a * b
     def divide(self, a, b):
-        if b == 0:
-            raise ValueError("Cannot divide by zero")
+        self._require_nonzero(b, "divide")
         return a / b
     def modulo(self, a, b):
-        if b == 0:
-            raise ValueError("Cannot modulo by zero")
+        self._require_nonzero(b, "modulo")
         return a % b
