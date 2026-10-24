@@ -50,6 +50,13 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaises(ValueError):
             calc.modulo(5, 0.0)   # float zero must be rejected too
 
+    # ---- Q6: power ----
+    def test_power(self):
+        calc = Calculator()
+        self.assertEqual(calc.power(2, 3), 8)
+        self.assertEqual(calc.power(3, 2), 9)   # catches swapped arguments (b ** a)
+        self.assertEqual(calc.power(5, 1), 5)   # exponent 1 -> base
+
         
 if __name__ == "__main__":
     unittest.main()
