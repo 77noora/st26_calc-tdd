@@ -12,7 +12,7 @@ class Calculator:
         return a * b
     def divide(self, a, b):
         self._require_nonzero(b, "divide")
-        return a // b
+        return a / b
     def modulo(self, a, b):
         self._require_nonzero(b, "modulo")
         return a % b
