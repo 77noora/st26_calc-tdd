@@ -35,6 +35,13 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calc.modulo(10, 5), 0)   # divisible -> 0
         self.assertEqual(calc.modulo(2, 5), 2)    # a < b -> a
 
+    def test_modulo_negative_operand(self):
+        # Decision (student): floor semantics, result takes the sign of the divisor
+        calc = Calculator()
+        self.assertEqual(calc.modulo(-7, 3), 2)    # -7 = -3*3 + 2
+        self.assertEqual(calc.modulo(7, -3), -2)   #  7 = -3*-3 + (-2)
+        self.assertEqual(calc.modulo(-7, -3), -1)  # -7 =  2*-3 + (-1)
+
         
 if __name__ == "__main__":
     unittest.main()
