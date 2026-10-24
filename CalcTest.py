@@ -57,6 +57,11 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calc.power(3, 2), 9)   # catches swapped arguments (b ** a)
         self.assertEqual(calc.power(5, 1), 5)   # exponent 1 -> base
 
+    def test_power_zero_to_zero(self):
+        # Decision (student): power(0, 0) returns 1 (mathematical/Python convention)
+        calc = Calculator()
+        self.assertEqual(calc.power(0, 0), 1)
+
         
 if __name__ == "__main__":
     unittest.main()
