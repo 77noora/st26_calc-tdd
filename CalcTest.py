@@ -62,6 +62,12 @@ class TestCalculator(unittest.TestCase):
         calc = Calculator()
         self.assertEqual(calc.power(0, 0), 1)
 
+    def test_power_negative_exponent(self):
+        # Decision (student): negative exponent returns a float, e.g. 2^-2 = 0.25
+        calc = Calculator()
+        self.assertEqual(calc.power(2, -2), 0.25)
+        self.assertIsInstance(calc.power(2, -2), float)
+
         
 if __name__ == "__main__":
     unittest.main()
